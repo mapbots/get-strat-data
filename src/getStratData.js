@@ -350,7 +350,7 @@ function calcTradeKeys(strats, opt) {
                                    ...st.trades.map(o => `${o.do}o`)]), [])
     .sort();
 
-  ///// Don't limit tradeKeys, as it could cut between open+close signals.
+  ///// Don't remove any tradeKeys, as it could cut between open+close signals.
   ///// (Note: Napbots adds virtual open-positions at one year-to-date).
   ///tradeKeys = tradeKeys.filter(k => k > opt.fromDay);
 
@@ -690,9 +690,7 @@ async function handleCLI(args) {
   opt.outputFile = fn.fol + fn.pre + fn.n + (fn.p1||'s') + fn.p2 + fn.p3 +
                      '.' + opt.format;
 
-  if (arg('proxy' )) {  // Use a proxy to download the data?
-    opt.proxify = proxify;
-  }
+  if (arg('proxy'))  opt.proxify = proxify;  // Use a proxy to download the data?
 
   // If needed, put the data on GitHub, using the authToken in arg 'token=___'.
   // + Run via e.g.:
@@ -706,13 +704,11 @@ async function handleCLI(args) {
     opt.outputFile = false;
     opt.gitCommit  = {
       url:   'https://api.github.com/repos/mapbots/data/contents/strats.json',
-      token: (args .find(s => s.startsWith('token=')) ||'') .slice(6),
+      token: (args.find(s => s.startsWith('token=')) ||'') .slice(6),
     }
   }
 
-  if (arg('silent')) opt.log = () => {};
-
-  ///opt.stratsToGet = ['hors'];   // (For dev).
+  if (arg('silent'))  opt.log = () => {};
 
   await main(opt);
 }

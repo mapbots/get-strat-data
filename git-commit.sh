@@ -40,6 +40,10 @@ git add --all
 git status
 
 
+titleAndPause "Viewing diff" "git diff"
+git diff --cached
+
+
 titleAndPause "Committing" "commit"
    GIT_AUTHOR_DATE="$DATE" \
 GIT_COMMITTER_DATE="$DATE" \
