@@ -284,7 +284,8 @@ function precalcData(dataAll, opt) {
     let pf    = data.performance;
 
     return {
-      name: label.toLowerCase().split(' ').pop().slice(0,4),
+      name: ////label.toLowerCase().split(' ').pop().slice(0,4),
+            stratName,
       code: data.code,
       dd:   pf.maxDrawdown,
       pf: {
