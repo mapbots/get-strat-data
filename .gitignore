@@ -1,0 +1,6 @@
+node_modules/
+z-*/
+secret*
+*.bat
+*.lnk
+*.txt
