@@ -66,7 +66,7 @@ const stratNamesToCodes = {
   buff: 'STRAT_BCH_USD_LO_D_1',
   cow : 'STRAT_EOS_USD_D_2',
   croc: 'STRAT_BTC_USD_FUNDING_8H_1',
-  pack: 'STRAT_HIGH_VOL_H_1',
+  pack: 'STRAT_HIGH_VOL_CAPPED_H_1',
   shar: 'STRAT_LOW_VOL_H_1',
 };
 
@@ -355,7 +355,7 @@ function calcTradeKeys(strats, opt) {
   ///// (Note: Napbots adds virtual open-positions at one year-to-date).
   ///tradeKeys = tradeKeys.filter(k => k > opt.fromDay);
 
-  return tradeKeys
+  return tradeKeys;
 }
 
 
