@@ -58,5 +58,5 @@ git log  -n $GIT_HISTORY_VIEW_LENGTH --pretty=fuller
 echo ""
 
 
-titleAndPause "Uploading as user $NAME" "uploading"
+titleAndPause "Uploading as user $NAME" "upload"
 git push -u origin master
